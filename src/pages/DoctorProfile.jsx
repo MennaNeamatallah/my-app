@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-import "../styles/DoctorProfile.css";
+import "../styles/doctorProfile.css";
 import profile from "../assets/profile.png";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
