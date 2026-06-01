@@ -1,0 +1,46 @@
+.page {
+  padding: 20px;
+  font-family: "Cairo";
+}
+
+.profile-wrapper{
+  display: flex;
+  
+  gap: 40px;
+
+}
+
+.page img{
+width: 500px;
+margin-bottom: 10px;
+margin-left: 100px;
+} 
+
+.card-pro{
+  width: 500px;
+  height: auto;
+  direction: rtl;
+  margin-top: 40px;
+  margin-left: 100px;
+  background: #CFE7E7;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 50px;
+  
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+input {
+  
+  padding: 12px;
+}
+
+.btn {
+  background: teal;
+  color: white;
+  padding: 12px;
+  border: none;
+}

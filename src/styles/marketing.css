@@ -1,0 +1,146 @@
+.marketing-container {
+  min-height: 100vh;
+  background-color: #e6f5f3;
+  padding: 40px 20px;
+  position: relative;
+  font-family: "Cairo";
+}
+
+/* اللوجو */
+.marketing-container .logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  
+}
+
+.marketing-container .logo img {
+  height: 60px;
+  width: auto;
+}
+
+/* الجزء الأول */
+.marketing-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
+}
+
+/* النص */
+.text {
+  flex: 1;
+  text-align: center;
+  transform: translateX(90px);
+}
+
+.text h2 {
+  font-size: 45px;
+  margin-bottom: 15px;
+}
+
+.text p {
+  color: #555;
+  font-size: 20px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.text button {
+  background: #2a9d8f;
+  color: white;
+  border: none;
+  padding: 20px 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* الصور */
+.right-side {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.top-image {
+  width: 260px;
+  border-radius: 10px;
+}
+
+/* العنوان فوق المربعات */
+.features-title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  margin: 50px 0 50px;
+  margin-bottom: 25px;
+}
+
+/* المربعات */
+.features {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: auto;
+  gap: 20px;
+}
+
+
+.features .card {
+  flex: 1;
+  background: white ;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.features .icon {
+  font-size: 40px;
+  color: #2a9d8f;
+  margin-bottom: -5px;
+  
+}
+
+.card h2 {
+  margin-bottom: 8px;
+  
+}
+
+.card p {
+  font-size: 17px;
+  color: #3f3d3d;
+}
+
+/* الجزء اللي تحت */
+.bottom-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 50px auto;
+  gap: 10px;
+}
+
+.bottom-text {
+  font-size: 40px;
+  line-height: 0.1;
+  font-weight: bold;
+  flex: 1;
+  text-align: center;
+}
+.bottom-text span {
+display: block;
+margin-left: 20px;
+color: black;
+}
+.bottom-image {
+  width: 260px;
+  border-radius: 10px;
+  margin-right: 50px;
+}
