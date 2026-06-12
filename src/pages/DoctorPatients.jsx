@@ -102,7 +102,7 @@ function DoctorPatients() {
                 <th>لدغة</th>
                 <th>المستوى</th>
                 <th>آخر جلسة</th>
-                <th>التقدم</th>
+
               </tr>
             </thead>
 
@@ -121,7 +121,7 @@ function DoctorPatients() {
                         ? new Date(p.last_session_date).toLocaleDateString()
                         : "-"}
                     </td>
-                    <td>{p.progress ?? 0}%</td>
+
                   </tr>
                 ))
               ) : (

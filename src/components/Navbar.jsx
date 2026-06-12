@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaHome, FaFileAlt, FaSignOutAlt, FaUser, FaUsers } from "react-icons/fa";
 import "../styles/navbar.css";
@@ -7,7 +7,7 @@ import logo from "../assets/logo.png";
 function Navbar() {
 
   const navigate = useNavigate();
-
+  const location = useLocation();
   const [role, setRole] = useState("");
   const [name, setName] = useState("");
 
@@ -16,6 +16,9 @@ function Navbar() {
     setName(localStorage.getItem("name"));
   }, []);
 
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
   const goProfile = () => {
     if (role === "doctor") {
       navigate("/doctor/profile");
@@ -34,26 +37,50 @@ function Navbar() {
       <div className="nav-links">
 
         {/* Profile */}
-        <span onClick={goProfile}>
+        <span
+          className={
+            role === "doctor"
+              ? isActive("/doctor/profile")
+                ? "active"
+                : ""
+              : "disabled"
+          }
+          onClick={role === "doctor" ? goProfile : undefined}
+        >
           <FaUser /> {name || "مستخدم"}
         </span>
 
 
 
         {role === "doctor" && (
-          <span onClick={() => navigate("/doctor/patients")}>
+          <span
+            className={isActive("/doctor/patients") ? "active" : ""}
+            onClick={() => navigate("/doctor/patients")}
+          >
             <FaUsers /> قائمة المرضى
           </span>
         )}
 
-        <span onClick={() =>
-          navigate(role === "doctor"
-            ? "/doctor/report"
-            : "/patient/report")
-        }>
+        <span
+          className={
+            isActive(
+              role === "doctor"
+                ? "/doctor/report"
+                : "/patient/report"
+            )
+              ? "active"
+              : ""
+          }
+          onClick={() =>
+            navigate(
+              role === "doctor"
+                ? "/doctor/report"
+                : "/patient/report"
+            )
+          }
+        >
           <FaFileAlt /> التقرير
         </span>
-
         <span onClick={() => {
           localStorage.clear();
           navigate("/");

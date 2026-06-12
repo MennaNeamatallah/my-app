@@ -52,6 +52,7 @@ function PatientReport() {
             });
 
             const data = await res.json();
+            console.log("FULL RESPONSE", data);
 
             if (data.status && data.data?.length > 0) {
                 setPatient(data.patient);
@@ -59,6 +60,8 @@ function PatientReport() {
                 const sessionWithRecords =
                     data.data.find((s) => s.records?.length > 0) ||
                     data.data[0];
+                console.log("SESSION WITH RECORDS", sessionWithRecords);
+                console.log("FIRST RECORD", sessionWithRecords.records?.[0]);
 
                 setSession(sessionWithRecords);
                 setRecords(sessionWithRecords.records || []);
@@ -132,7 +135,7 @@ function PatientReport() {
                                         <td>{session?.session?.level || "-"}</td>
 
                                         {/* ✅ FIX: expected_text */}
-                                        <td>{r.expected_text || "-"}</td>
+                                        <td>{r.recognized_text || "-"}</td>
 
                                         <td>{r.is_correct ? "✔" : "✖"}</td>
                                         <td>

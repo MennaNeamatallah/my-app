@@ -32,6 +32,15 @@
   gap: 4px;
 }
 
-.nav-links span:hover {
+.nav-links span:not(.disabled):hover {
   color: #008b8b;
+}
+.nav-links span.active {
+  color: #008b8b;
+  font-weight: bold;
+}
+
+.nav-links span.disabled {
+  cursor: default;
+  opacity: 0.8;
 }
