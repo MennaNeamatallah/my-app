@@ -57,12 +57,14 @@ function PatientReport() {
             if (data.status && data.data?.length > 0) {
                 setPatient(data.patient);
 
-                const sessionWithRecords =
-                    data.data.find((s) => s.records?.length > 0) ||
-                    data.data[0];
-                console.log("SESSION WITH RECORDS", sessionWithRecords);
-                console.log("FIRST RECORD", sessionWithRecords.records?.[0]);
+                const allRecords = data.data.flatMap((s) =>
+                    (s.records || []).map((r) => ({
+                        ...r,
+                        sessionInfo: s.session,
+                    }))
+                );
 
+                setRecords(allRecords);
                 setSession(sessionWithRecords);
                 setRecords(sessionWithRecords.records || []);
 
@@ -112,16 +114,16 @@ function PatientReport() {
             <div className="container">
 
                 <div className="table-box">
-                    <h3>الجلسات</h3>
+                    <h2>الجلسات</h2>
 
                     <table>
                         <thead>
                             <tr>
                                 <th>التاريخ</th>
                                 <th>المستوى</th>
-                                <th>لدغة</th>
+                                <th>حرف التدريب</th>
                                 <th>صحيح</th>
-                                <th>التقدم</th>
+                                <th>دقة النطق</th>
                                 <th>الصوت</th>
                             </tr>
                         </thead>
@@ -130,12 +132,11 @@ function PatientReport() {
                             {records.length ? (
                                 records.map((r) => (
                                     <tr key={r.id}>
-                                        <td>{formatDate(session?.session?.created_at)}</td>
-
-                                        <td>{session?.session?.level || "-"}</td>
+                                        <td>{formatDate(r.sessionInfo?.created_at)}</td>
+                                        <td>{r.sessionInfo?.level || "-"}</td>
 
                                         {/* ✅ FIX: expected_text */}
-                                        <td>{r.recognized_text || "-"}</td>
+                                        <td>{r.expected_text || "-"}</td>
 
                                         <td>{r.is_correct ? "✔" : "✖"}</td>
                                         <td>

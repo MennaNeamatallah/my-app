@@ -54,13 +54,15 @@ function PatientReport() {
         // 👇 حفظ بيانات المريض
         setPatient(data.patient);
 
-        const sessionWithRecords = data.data.find(
-          (s) => s.records && s.records.length > 0
-        ) || data.data[0];
+        const allRecords = data.data.flatMap((s) =>
+          (s.records || []).map((r) => ({
+            ...r,
+            sessionInfo: s,
+          }))
+        );
 
-        setSession(sessionWithRecords);
-        setStats(sessionWithRecords.stats || null);
-        setRecords(sessionWithRecords.records || []);
+        setRecords(allRecords);
+
 
       } else {
         setRecords([]);
@@ -176,7 +178,7 @@ function PatientReport() {
       <div className="container">
 
         <div className="table-box">
-          <h3>الجلسات</h3>
+          <h2>الجلسات</h2>
 
           <table>
             <thead>
@@ -185,7 +187,7 @@ function PatientReport() {
                 <th>المستوى</th>
                 <th>لدغة</th>
                 <th>صحيح</th>
-                <th>التقدم</th>
+                <th>دقة النطق</th>
                 <th>الصوت</th>
               </tr>
             </thead>
@@ -195,15 +197,12 @@ function PatientReport() {
                 records.map((r) => (
                   <tr key={r.id}>
                     <td>
-                      {formatDate(
-                        session?.session?.created_at || session?.created_at
-                      )}
+                      {formatDate(r.sessionInfo?.created_at)}
                     </td>
 
                     <td>
-                      {session?.session?.level || session?.level || "-"}
+                      {r.sessionInfo?.level || "-"}
                     </td>
-
                     <td>
                       {translateDiagnosis(patient?.speech_disorder)}
                     </td>
