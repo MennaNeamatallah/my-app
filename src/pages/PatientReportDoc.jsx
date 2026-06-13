@@ -223,7 +223,7 @@ function PatientReport() {
                           preload="none"
                           src={
                             r.file_url.startsWith("http")
-                              ? r.file_url
+                              ? r.file_url.replace("http://", "https://")
                               : `${BASE}/${r.file_url.replace(/^\/+/, "")}`
                           }
                         />
