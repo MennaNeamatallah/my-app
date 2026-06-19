@@ -4,7 +4,7 @@ import profile from "../assets/profile.png";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const API = "https://shiftless-handgrip-mantis.ngrok-free.dev/api";
+const API = "https://nutqiproject-production-5f8a.up.railway.app/api";
 
 function DoctorProfile() {
 

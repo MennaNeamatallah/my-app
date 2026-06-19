@@ -4,7 +4,7 @@ import { FaUsers } from "react-icons/fa";
 import "../styles/doctorPatients.css";
 import { useEffect, useState } from "react";
 
-const API = "https://shiftless-handgrip-mantis.ngrok-free.dev/api";
+const API = "https://nutqiproject-production-5f8a.up.railway.app/api";
 
 const translateDiagnosis = (value) => {
   const map = {

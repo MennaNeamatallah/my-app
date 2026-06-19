@@ -3,8 +3,8 @@ import { FaEdit, FaStickyNote } from "react-icons/fa";
 import "../styles/patientReport.css";
 import { useState, useEffect } from "react";
 
-const API = "https://shiftless-handgrip-mantis.ngrok-free.dev/api";
-const BASE = "https://shiftless-handgrip-mantis.ngrok-free.dev";
+const API = "https://nutqiproject-production-5f8a.up.railway.app/api";
+const BASE = "https://nutqiproject-production-5f8a.up.railway.app";
 
 function PatientReport() {
   const role = localStorage.getItem("role");

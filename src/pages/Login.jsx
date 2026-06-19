@@ -10,7 +10,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const BASE_URL = "https://shiftless-handgrip-mantis.ngrok-free.dev/api";
+  const BASE_URL = "https://nutqiproject-production-5f8a.up.railway.app/api";
 
   const handleLogin = async () => {
     if (!email || !password) {

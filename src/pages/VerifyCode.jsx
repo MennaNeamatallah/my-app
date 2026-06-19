@@ -6,7 +6,7 @@ import verify3 from "../assets/Verify3.png";
 import verify4 from "../assets/Verify4.png";
 import { useState } from "react";
 
-const API = "https://shiftless-handgrip-mantis.ngrok-free.dev/api";
+const API = "https://nutqiproject-production-5f8a.up.railway.app/api";
 
 function VerifyCode() {
   const navigate = useNavigate();

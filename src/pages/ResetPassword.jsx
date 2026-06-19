@@ -4,7 +4,7 @@ import reset1 from "../assets/Reset1.png";
 import reset2 from "../assets/Reset2.png";
 import { useState } from "react";
 
-const API = "https://shiftless-handgrip-mantis.ngrok-free.dev/api";
+const API = "https://nutqiproject-production-5f8a.up.railway.app/api";
 
 function ResetPassword() {
   const navigate = useNavigate();

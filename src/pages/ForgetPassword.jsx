@@ -5,7 +5,7 @@ import forget2 from "../assets/forget2.png";
 import forget3 from "../assets/forget3.png";
 import { useState } from "react";
 
-const API = "https://shiftless-handgrip-mantis.ngrok-free.dev/api";
+const API = "https://nutqiproject-production-5f8a.up.railway.app/api";
 
 function ForgotPassword() {
   const navigate = useNavigate();
@@ -39,8 +39,8 @@ function ForgotPassword() {
         <div className="forgot-box">
           <h1>نسيت كلمة المرور؟</h1>
 
-          <p>من فضلك ادخل بريدك اللإكتروني و سنرسل 
-            <br />لك كود لتعيين كلمة مرور جديدة 
+          <p>من فضلك ادخل بريدك اللإكتروني و سنرسل
+            <br />لك كود لتعيين كلمة مرور جديدة
           </p>
 
           <div className="input-group">

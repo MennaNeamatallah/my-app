@@ -12,7 +12,7 @@ function Register() {
 
   const navigate = useNavigate();
 
-  const BASE_URL = "https://shiftless-handgrip-mantis.ngrok-free.dev/api";
+  const BASE_URL = "https://nutqiproject-production-5f8a.up.railway.app/api";
 
   const handleRegister = async () => {
     try {
@@ -44,7 +44,7 @@ function Register() {
       try {
         data = JSON.parse(text);
       } catch {
-        console.log("❌ response مش JSON:", text);
+        console.log(" response مش JSON:", text);
         alert("السيرفر مش شغال صح");
         return;
       }
@@ -54,7 +54,7 @@ function Register() {
         return;
       }
 
-      alert("تم إنشاء الحساب 🎉");
+      alert("تم إنشاء الحساب ");
       navigate("/login");
 
     } catch (err) {

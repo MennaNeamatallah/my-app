@@ -3,8 +3,8 @@ import { FaStickyNote } from "react-icons/fa";
 import "../styles/patientReport.css";
 import { useState, useEffect } from "react";
 
-const API = "https://shiftless-handgrip-mantis.ngrok-free.dev/api";
-const BASE = "https://shiftless-handgrip-mantis.ngrok-free.dev";
+const API = "https://nutqiproject-production-5f8a.up.railway.app/api";
+const BASE = "https://nutqiproject-production-5f8a.up.railway.app";
 
 function PatientReport() {
     const token = localStorage.getItem("token");
@@ -65,10 +65,11 @@ function PatientReport() {
                 );
 
                 setRecords(allRecords);
-                setSession(sessionWithRecords);
-                setRecords(sessionWithRecords.records || []);
 
-                fetchSingleSession(sessionWithRecords.session.id);
+
+                if (data.data[0]?.session?.id) {
+                    fetchSingleSession(data.data[0].session.id);
+                }
             } else {
                 setSession(null);
                 setRecords([]);
@@ -106,7 +107,22 @@ function PatientReport() {
     useEffect(() => {
         fetchPatientSessions();
     }, []);
+    {
+        records.map((r) => {
+            const audioUrl =
+                r.file_url.startsWith("http")
+                    ? r.file_url.replace("http://", "https://")
+                    : `${BASE}/${r.file_url.replace(/^\/+/, "")}`;
 
+            console.log("Audio URL:", audioUrl);
+
+            return (
+                <tr key={r.id}>
+                    ...
+                </tr>
+            );
+        })
+    }
     return (
         <div className="page">
             <Navbar page="report" />
@@ -136,7 +152,11 @@ function PatientReport() {
                                         <td>{r.sessionInfo?.level || "-"}</td>
 
                                         {/* ✅ FIX: expected_text */}
-                                        <td>{r.expected_text || "-"}</td>
+                                        <td>
+                                            {(r.sessionInfo?.level === 1 || r.sessionInfo?.level === 2)
+                                                ? (r.target_phoneme || "-")
+                                                : (r.expected_text || "-")}
+                                        </td>
 
                                         <td>{r.is_correct ? "✔" : "✖"}</td>
                                         <td>
@@ -148,7 +168,7 @@ function PatientReport() {
                                             {r.file_url ? (
                                                 <audio
                                                     controls
-                                                    preload="none"
+                                                    style={{ width: "250px" }}
                                                     src={
                                                         r.file_url.startsWith("http")
                                                             ? r.file_url.replace("http://", "https://")
