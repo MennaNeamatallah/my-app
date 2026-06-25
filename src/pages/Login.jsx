@@ -44,10 +44,10 @@ function Login() {
       localStorage.setItem("user_id", data.user.id);
 
       if (data.user.role === "doctor") {
-        localStorage.setItem("doctor_id", data.user.id);
+        localStorage.setItem("doctor_id", data.doctor_id);
         navigate("/doctor/patients");
       } else {
-        localStorage.setItem("patient_id", data.user.id);
+        localStorage.setItem("patient_id", data.user_id);
         navigate("/patient/report");
       }
 

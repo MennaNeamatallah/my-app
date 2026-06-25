@@ -178,7 +178,7 @@ function PatientReport() {
       <div className="container">
 
         <div className="table-box">
-          <h>الجلسات</h>
+          <h2>الجلسات</h2>
 
           <table>
             <thead>
